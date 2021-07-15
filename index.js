@@ -1,6 +1,6 @@
 const express = require("express")
 const path = require("path")
-
+const url = require('url')
 const app = express()
 
 app.use(express.json());
@@ -30,13 +30,12 @@ app.get('/deletar/:id', (req, res) =>{
     tarefas = tarefas.filter(function(val, index){
         if(index != req.params.id){
             return val; 
-        };
+        }
     })
     res.render('index', {
         tarefas
     })
-})
-
+});
 
 app.listen(5000, ()=> {
     console.log("server rodando")
